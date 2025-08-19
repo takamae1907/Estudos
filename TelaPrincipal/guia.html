@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Estudos - Meus Estudos</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="guia.css">
+    <link rel="icon" type="image/png" href="fotos/logo.png">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <a href="TelaPrincipal.html"> <img src="fotos/logo.png" alt="Logo Meus Estudos"></a>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="TelaPrincipal.html"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+                    <li><a href="edital-pmdf.html"><i class="fa-solid fa-book"></i><span>Conteúdo</span></a></li>
+                    <li><a href="calendario.html"><i class="fa-solid fa-calendar-days"></i><span>Calendário</span></a></li>
+                    <li><a href="cronometro.html"><i class="fa-solid fa-stopwatch"></i><span>Cronômetro</span></a></li>
+                    <li><a href="painel_tatico.html"><i class="fa-solid fa-chart-pie"></i><span>Painel Tático</span></a></li>
+                    <li><a href="questoes.html"><i class="fa-solid fa-list-check"></i><span>Questões</span></a></li>
+                    <li><a href="caderno.html"><i class="fa-solid fa-swatchbook"></i><span>Cadernos</span></a></li>
+                    <li><a href="flashcards.html"><i class="fa-solid fa-layer-group"></i><span>Flashcards</span></a></li>
+                    <li class="active"><a href="guia.html"><i class="fa-solid fa-map-location-dot"></i><span>Guia</span></a></li>
+                    <li><a href="edital.html"><i class="fa-solid fa-book-open"></i><span>Edital</span></a></li>
+                    <li><a href="musica.html"><i class="fa-solid fa-music"></i><span>Música</span></a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h2>GUIA DE ESTUDOS</h2>
+            </header>
+
+            <section class="summary-widgets">
+                <div class="summary-card">
+                    <i class="fa-solid fa-clock"></i>
+                    <div>
+                        <span>Tempo de Estudo</span>
+                        <strong id="summary-tempo">0h 0m</strong>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <i class="fa-solid fa-list-check"></i>
+                    <div>
+                        <span>Questões Resolvidas</span>
+                        <strong id="summary-questoes">0</strong>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <i class="fa-solid fa-bullseye"></i>
+                    <div>
+                        <span>Aproveitamento Geral</span>
+                        <strong id="summary-aproveitamento">0%</strong>
+                    </div>
+                </div>
+            </section>
+
+            <section class="progress-section">
+                <h2>Acompanhe seu progresso e mantenha a disciplina para alcançar a aprovação.</h2>
+                <div class="progress-grid">
+                </div>
+            </section>
+
+             <section class="performance-analysis">
+                <div class="performance-card" id="pontos-fortes">
+                    <h3><i class="fa-solid fa-arrow-trend-up"></i> Pontos Fortes</h3>
+                    <ul></ul>
+                </div>
+                <div class="performance-card" id="pontos-fracos">
+                    <h3><i class="fa-solid fa-arrow-trend-down"></i> Pontos a Melhorar</h3>
+                    <ul></ul>
+                </div>
+            </section>
+        </main>
+
+        <aside class="right-column">
+            <div class="section-header">
+                <h2>Sugestões da IA</h2>
+            </div>
+            <div class="sugestoes-widget">
+                <ul></ul>
+            </div>
+
+            <div class="section-header">
+                <h2>Atividade Recente</h2>
+            </div>
+             <div class="atividade-recente-widget">
+                <ul>
+                    </ul>
+            </div>
+        </aside>
+    </div>
+
+    <script src="guia.js"></script>
+</body>
+</html>

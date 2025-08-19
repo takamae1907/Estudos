@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronômetro de Estudos</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="cronometro.css">
+    <link rel="icon" type="image/png" href="fotos/logo.png">
+
+    <!-- Chart.js para o gráfico -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+        <!-- === SIDEBAR PADRÃO INSERIDA AQUI === -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <a href="TelaPrincipal.html"> <img src="fotos/logo.png" alt="Logo Meus Estudos"></a>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="TelaPrincipal.html"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+                    <li><a href="edital-pmdf.html"><i class="fa-solid fa-book"></i><span>Conteúdo</span></a></li>
+                    <li><a href="calendario.html"><i class="fa-solid fa-calendar-days"></i><span>Calendário</span></a>
+                    </li>
+                    <li class="active"><a href="cronometro.html"><i
+                                class="fa-solid fa-stopwatch"></i><span>Cronômetro</span></a></li>
+                    <li><a href="painel_tatico.html"><i class="fa-solid fa-chart-pie"></i><span>Painel Tático</span></a>
+                    </li>
+                    <li><a href="questoes.html"><i class="fa-solid fa-list-check"></i><span>Questões</span></a></li>
+                    <li><a href="cadernos.html"><i class="fa-solid fa-swatchbook"></i><span>Cadernos</span></a></li>
+                    <li><a href="flashcards.html"><i class="fa-solid fa-layer-group"></i><span>Flashcards</span></a>
+                    </li>
+                    <li><a href="guia.html"><i class="fa-solid fa-map-location-dot"></i><span>Guia</span></a></li>
+                    <li><a href="edital.html"><i class="fa-solid fa-book-open"></i><span>Edital</span></a></li>
+                    <li><a href="musica.html"><i class="fa-solid fa-music"></i><span>Música</span></a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h2>Cronômetro de Atividades</h2>
+            </header>
+
+            <div class="mode-selector">
+                <button id="mode-cronometro" class="active">Cronômetro</button>
+                <button id="mode-manual">Registro Manual</button>
+            </div>
+
+            <div class="activity-grid">
+                <div class="form-card">
+                    <!-- Formulário do Cronômetro -->
+                    <form id="timer-form">
+                        <div class="form-section">
+                            <label for="activity-name-timer">Atividade ou Matéria</label>
+                            <input type="text" id="activity-name-timer" placeholder="Ex: Revisão de Direito Penal"
+                                required>
+                        </div>
+                        <hr class="form-divider">
+                        <div class="timer-display">
+                            <div id="timer">00:00:00</div>
+                        </div>
+                        <div class="timer-controls">
+                            <button type="button" id="start-btn">Iniciar</button>
+                            <button type="button" id="pause-btn">Pausar</button>
+                            <button type="button" id="reset-btn">Zerar</button>
+                        </div>
+                    </form>
+
+                    <!-- Formulário de Registro Manual -->
+                    <form id="manual-form" class="hidden">
+                        <div class="form-section">
+                            <label for="activity-name-manual">Atividade ou Matéria</label>
+                            <input type="text" id="activity-name-manual" placeholder="Ex: Resolução de Questões"
+                                required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-section">
+                                <label for="activity-date">Data</label>
+                                <input type="date" id="activity-date" required>
+                            </div>
+                            <div class="form-section">
+                                <label for="activity-duration">Duração (minutos)</label>
+                                <input type="number" id="activity-duration" placeholder="Ex: 45" min="1" required>
+                            </div>
+                        </div>
+                    </form>
+
+                    <button id="save-btn" class="save-button" type="button">Salvar Atividade</button>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Atividades da Semana</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="activity-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="cronometro.js"></script>
+</body>
+
+</html>

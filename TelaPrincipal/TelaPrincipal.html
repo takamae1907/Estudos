@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Meus Estudos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="TelaPrincipal.css">
+    <link rel="icon" type="image/png" href="fotos/logo.png">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-user">
+                <h2 class="user-name">Usuário</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active"><a href="TelaPrincipal.html"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+                    <li><a href="conteudos.html"><i class="fa-solid fa-book"></i><span>Conteúdo</span></a></li>
+                    <li><a href="calendario.html"><i class="fa-solid fa-calendar-days"></i><span>Calendario</span></a></li>
+                    <li><a href="cronometro.html"><i class="fa-solid fa-stopwatch"></i><span>Cronômetro</span></a></li>
+                    <li><a href="painel_tatico.html"><i class="fa-solid fa-chart-pie"></i><span>Painel Tático</span></a></li>
+                    <li><a href="questoes.html"><i class="fa-solid fa-list-check"></i><span>Questões</span></a></li>
+                    <li><a href="caderno.html"><i class="fa-solid fa-swatchbook"></i><span>Cadernos</span></a></li>
+                    <li><a href="flashcards.html"><i class="fa-solid fa-layer-group"></i><span>Flashcards</span></a></li>
+                    <li><a href="guia.html"><i class="fa-solid fa-map-location-dot"></i><span>Guia</span></a></li>
+                    <li><a href="edital.html"><i class="fa-solid fa-book-open"></i><span>Edital</span></a></li>
+                    <li><a href="musica.html"><i class="fa-solid fa-music"></i><span>Música</span></a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h2>SUA OPINIÃO É IMPORTANTE</h2>
+                <button>Participe da pesquisa</button>
+            </header>
+
+            <div class="widgets-grid">
+                <div class="widget welcome-widget">
+                    <h3>Olá, <span class="user-name">Usuário</span>. <span class="subtitle">Bem-vindo!</span></h3>
+                    <p class="welcome-message">Este é o resumo do seu progresso geral. Continue focado nos seus objetivos!</p>
+                    <div class="progress-bar">
+                        <div class="progress" id="geral-progress-bar" style="width: 0%;"></div>
+                    </div>
+                    <p id="geral-progress-text">0% APROVEITAMENTO GERAL</p>
+                    
+                    <div class="quick-actions">
+                        <button onclick="window.location.href='cronometro.html'"><i class="fa-solid fa-stopwatch"></i> Iniciar Estudo</button>
+                        <button onclick="window.location.href='questoes.html'"><i class="fa-solid fa-list-check"></i> Praticar Questões</button>
+                    </div>
+                </div>
+
+                <div class="widget provas-widget">
+                    <h4>Próximas Provas</h4>
+                    <ul id="provas-list"></ul>
+                </div>
+
+                <div class="widget stats-overview-widget">
+                    <div class="stat-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <span>Tempo de Estudo</span>
+                            <strong id="stats-tempo">0h 0m</strong>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fa-solid fa-list-check"></i>
+                        <div>
+                            <span>Questões Resolvidas</span>
+                            <strong id="stats-questoes">0</strong>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fa-solid fa-bullseye"></i>
+                        <div>
+                            <span>Aproveitamento Geral</span>
+                            <strong id="stats-aproveitamento">0%</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="widget editais-widget">
+                    <div class="widget-header">
+                        <h4>Meus Editais</h4>
+                        <div class="edital-actions">
+                            <i class="fa-solid fa-file-circle-plus" title="Adicionar Edital"></i>
+                            <i class="fa-solid fa-folder-open" title="Ver Todos"></i>
+                        </div>
+                   </div>
+                   <ul class="editais-list" id="editais-list">
+                       </ul>
+                </div>
+                
+                <div class="widget revision-widget">
+                    <h4>Para Revisar Hoje</h4>
+                    <ul id="revisao-list">
+                        </ul>
+                </div>
+            </div>
+
+            <section class="turmas-section">
+                </section>
+        </main>
+
+        <aside class="right-column">
+             </aside>
+    </div>
+
+    <script src="edital-pmdf.js"></script>
+    <script>
+        const editalCBMDF_data = { /* Cole o objeto editalCBMDF aqui */ };
+        const cronogramaCBMDF_data = [ /* Cole o array cronogramaCBMDF aqui */ ];
+    </script>
+    
+    <script src="app.js"></script>
+    <script src="TelaPrincipal.js"></script>
+</body>
+
+</html>
