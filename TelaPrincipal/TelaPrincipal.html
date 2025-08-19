@@ -20,12 +20,8 @@
             </div>
             <nav class="sidebar-nav">
                 <ul>
-                    <li class="active">
-                        <a href="TelaPrincipal.html">
-                            <i class="fa-solid fa-house"></i>
-                            <span>Home</span>
-                        </a>
-                    </li>
+                    <li class="active"><a href="TelaPrincipal.html"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+                </ul>
             </nav>
         </aside>
 
@@ -36,7 +32,6 @@
             </header>
 
             <div class="widgets-grid">
-
                 <div class="widget welcome-widget">
                     <h3 id="welcome-message">Olá! <span class="subtitle">Bem-vindo(a)!</span></h3>
                 </div>
@@ -53,29 +48,8 @@
                                 <span>26 de Outubro, 2025</span>
                             </div>
                         </li>
-                        <li>
-                            <div class="countdown">
-                                <strong>107</strong>
-                                <span>dias</span>
-                            </div>
-                            <div class="prova-info">
-                                <strong>SD PCGO</strong>
-                                <span>30 de Novembro, 2025</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="countdown">
-                                <strong>121</strong>
-                                <span>dias</span>
-                            </div>
-                            <div class="prova-info">
-                                <strong>PP DF</strong>
-                                <span>14 de Dezembro, 2025</span>
-                            </div>
-                        </li>
                     </ul>
                 </div>
-
                 <div class="widget revision-widget">
                     <h4>Para Revisar Hoje</h4>
                     <ul>
@@ -86,37 +60,23 @@
                                 <span>Dos Crimes contra a Pessoa</span>
                             </div>
                         </li>
-                        <li>
-                            <i class="fa-solid fa-calculator"></i>
-                            <div>
-                                <strong>Raciocínio Lógico</strong>
-                                <span>Tabela Verdade e Proposições</span>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-spell-check"></i>
-                            <div>
-                                <strong>Língua Portuguesa</strong>
-                                <span>Uso da Crase</span>
-                            </div>
-                        </li>
                     </ul>
                 </div>
-
             </div>
+
             <section class="turmas-section">
                 <div class="section-header">
                     <h2>Minhas Turmas</h2>
                     <input type="text" placeholder="Pesquisar turmas...">
                 </div>
                 <div class="turmas-grid">
-                    <a href="edital-cbmdf.html" class="turma-card">
-                        <img src="fotos/cfo-cbm.png" alt="Turma CFO CBM">
-                        <div class="turma-title">CFO CBM</div>
+                     <a href="edital-cbmdf.html" class="turma-card">
+                        <img src="fotos/cfo-cbm.png" alt="Turma CFO CBMDF">
+                        <div class="turma-title">CFO CBMDF</div>
                     </a>
                     <a href="edital-cfocbm.html" class="turma-card">
-                        <img src="fotos/cfo-sd.png" alt="Turma SD PMDF">
-                        <div class="turma-title">SD CBM</div>
+                        <img src="fotos/cfo-sd.png" alt="Turma SD CBMDF">
+                        <div class="turma-title">SD CBMDF</div>
                     </a>
                 </div>
             </section>
@@ -125,7 +85,7 @@
         <aside class="right-column">
             <div class="section-header">
                 <h2>Meu Dia</h2>
-                <a href="#" class="view-all">Ver todos</a>
+                <a href="calendario.html" class="view-all">Ver todos</a>
             </div>
             <div class="lembretes-widget">
                 <h4>LEMBRETES</h4>
@@ -136,6 +96,8 @@
     </div>
 
     <script src="auth.js"></script>
+    <script src="cbmdf-data.js"></script>
+    <script src="pmdf-data.js"></script>
     <script src="TelaPrincipal.js"></script>
 </body>
 
