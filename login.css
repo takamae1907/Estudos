@@ -1,24 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* --- ALTERAÇÕES AQUI --- */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #000000;
+    background-color: #000000; /* Cor de fundo caso a imagem não carregue */
     color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 20px;
-    position: relative;
-    overflow: hidden;
+    position: relative; /* Necessário para o pseudo-elemento do fundo */
+    overflow: hidden; /* Evita barras de rolagem desnecessárias */
 }
 
+/* Pseudo-elemento para o background com opacidade */
 body::before {
     content: '';
     position: absolute;
@@ -26,24 +29,27 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('background/background.png');
+    background-image: url('background/background.png'); /* <<< COLOQUE A IMAGEM AQUI */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.1;
-    z-index: -1;
+    opacity: 0.1; /* <<< CONTROLE AQUI A INTENSIDADE DO "RELEVO" */
+    z-index: -1; /* Coloca o fundo atrás de todo o conteúdo */
 }
+/* --- FIM DAS ALTERAÇÕES --- */
 
+
+/* Container principal do login */
 .login-container {
     width: 100%;
     max-width: 420px;
     padding: 40px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.05); /* Efeito de vidro */
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); /* Efeito de desfoque no fundo */
     text-align: center;
-    z-index: 1;
+    z-index: 1; /* Garante que o container fique na frente do fundo */
 }
 
 h1 {
@@ -53,6 +59,7 @@ h1 {
     letter-spacing: 2px;
 }
 
+/* Grupo de inputs */
 .input-group {
     margin-bottom: 20px;
 }
@@ -74,15 +81,16 @@ h1 {
 
 .input-group input:focus {
     outline: none;
-    border-color: rgba(0, 191, 255, 0.5);
+    border-color: rgba(0, 191, 255, 0.5); /* Cor azul claro ao focar */
 }
 
+/* Botão principal de Login */
 .btn-login {
     width: 100%;
     padding: 15px;
     border: none;
     border-radius: 10px;
-    background-color: #007bff;
+    background-color: #007bff; /* Azul similar ao original */
     color: #ffffff;
     font-size: 1.1em;
     font-weight: 600;
@@ -91,16 +99,17 @@ h1 {
 }
 
 .btn-login:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Azul mais escuro no hover */
 }
 
+/* Link de registro */
 .register-link {
     margin-top: 20px;
     font-size: 0.9em;
 }
 
 .register-link a {
-    color: #00BFFF;
+    color: #00BFFF; /* Azul claro */
     text-decoration: none;
     font-weight: 600;
 }
@@ -109,6 +118,7 @@ h1 {
     text-decoration: underline;
 }
 
+/* Separador "OU FAÇA LOGIN COM" */
 .separator {
     display: flex;
     align-items: center;
@@ -128,6 +138,7 @@ h1 {
     font-weight: 500;
 }
 
+/* Botões de login social */
 .social-login {
     display: flex;
     flex-direction: column;

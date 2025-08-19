@@ -7,7 +7,7 @@
     <title>Plano de Estudos - CBMDF</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHySURBVDhPpZJPSBRhFMd/d2Z3dnV13TUF8SoaCSpoECoZ6qFAT0EPRQ8Fk0IliEihkkKgBEUohB4KlfRQBKGHCpGoQ6EgHcdK6FpRz85835md2f2YfXrHx/s93/v+7/de+H+YpnEC2d0yWCo5zKj2OD4VAdnVQB+dFBCkY2n5bW4BztbU1c/Pz8/b29vPSkpqf2dnd3d3b2hoCJaQngCMTQC8tLS0sLGxsbW1tba2tjaHBwYnJvY/XVtZWVlZWlpSWloK4+L/AQAjE8BfAFpaWhofHz87Ozs/Pz83Nzc7W1swODDAwMDAgIGBsbExYdF/APBDLwDwsbGxsbGxsbW15eXl5e3t7ePj4+vr6+7u7uLiYmNjY29v7+zs7Nra2tLS0vj4+PDw8Ozs7O3t7ezs7M/Pz8zMzMvLw+fn5+Hh4evr6+Xl5d3d3bW1tQkJCZGRkcnJyWlpaZGRkeXl5QkJCcnJyakpqampKSsrm5ubW1tbKysoHBwcfHx/f39/v7+/j4+P7+/v39/cfHx+fn58fHh4eHh5+fn4eHh7u7u7e3t7a2trm5ubKysru7u7a2trm5uY/MjKysrKysrIyPz8/MzMzPz//+PHj+7s7d85c27179+7du1//vXv3rplzP/744/f7+R01cbA8b4Vj+kS+0JzfYmJioqKi4uPj7e3t7e/v7+/vf3p6evv58+fT09Pe3t7m5ubY2NjS0tLi4uLi4uKqqqrk5ORkZGS4uLiYmJj8+/fv39/f39/f7+/v7+/v7e3t7e3t7e3t7e3t7e3t7e3t7e0dHR1dXV37+/tra2v39/d3d3dXV1c3Nzc3NzcXFxcXFxcnJyZKSknJyckpKSkpKSlxcXFxcXFxcXFxcXJyanJyamJyYjIyMsbExNTU1OTk5PT09Pz8/OTk5LS0tLS0tKysrKysrKysrLS3t6OioqKiorq6ur6+voKCgoaGhubm5ra2tqampnZ2dpqamsbGxpaWlqampmZmZlZWVmZmZmZmZnZ2dna2tra2tra2trampmZmZmZmZmZmZmZmZmZmZubl/AsgW+gAAAABJRU5ErkJggg==">
+    <link rel="icon" type="image/png" href="fotos/logo.png">
 
     <style>
         /* --- APPLE DESIGN PHILOSOPHY - RESET & GLOBAIS --- */
@@ -34,20 +34,23 @@
             padding: 20px;
         }
 
-        /* --- BARRA LATERAL (SIDEBAR) --- */
+        /* --- BARRA LATERAL (SIDEBAR) - IDÊNTICA À TELA PRINCIPAL --- */
         .sidebar {
             padding: 10px 0;
             display: flex;
             flex-direction: column;
         }
 
-        .sidebar-logo {
+        .sidebar-user {
             padding: 15px 25px;
             margin-bottom: 10px;
         }
 
-        .sidebar-logo img {
-            width: 50px;
+        .sidebar-user h2 {
+            font-size: 1.8em;
+            font-weight: 600;
+            color: #f5f5f7;
+            line-height: 50px;
         }
 
         .sidebar-nav ul {
@@ -79,13 +82,15 @@
             font-weight: 500;
         }
 
+        /* Cor de hover/ativo no DESKTOP */
         .sidebar-nav li.active a,
         .sidebar-nav li a:hover {
             color: #ffffff;
             background-color: #2c2c2e;
         }
 
-        /* --- CONTEÚDO PRINCIPAL E COLUNA DIREITA --- */
+        /* --- FIM DA SIDEBAR --- */
+
         .main-content,
         .right-column {
             overflow-y: auto;
@@ -129,7 +134,6 @@
             font-size: 1.1em;
         }
 
-        /* --- PAINEL DE PROGRESSO --- */
         .progress-panel {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -148,6 +152,9 @@
             font-size: 0.9em;
             font-weight: 500;
             color: #8a8a8e;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .overall-chart h4 {
@@ -184,7 +191,6 @@
             margin-top: 8px;
         }
 
-        /* --- PLANO DE ESTUDOS (ACORDEÃO) --- */
         .plan-container h2 {
             margin-bottom: 20px;
             font-size: 1.8em;
@@ -196,7 +202,12 @@
             margin-bottom: 12px;
             overflow: hidden;
             border: 1px solid transparent;
-            transition: border-color 0.3s;
+            transition: all 0.3s;
+        }
+
+        .accordion-item.current-week {
+            border-color: #ff453a;
+            box-shadow: 0 0 15px rgba(255, 69, 58, 0.2);
         }
 
         .accordion-item.active {
@@ -242,7 +253,7 @@
         }
 
         .accordion-item.active .accordion-content {
-            max-height: 5000px; /* Aumentado para acomodar mais conteúdo */
+            max-height: 5000px;
             padding: 0 20px 20px;
         }
 
@@ -342,7 +353,6 @@
             text-decoration: line-through;
         }
 
-        /* --- COLUNA DA DIREITA --- */
         .right-column .widget {
             padding: 0;
             background: none;
@@ -409,7 +419,6 @@
             color: #8a8a8e;
         }
 
-        /* --- RESPONSIVIDADE --- */
         @media (max-width: 1200px) {
             .dashboard-container {
                 grid-template-columns: 90px 1fr;
@@ -438,7 +447,7 @@
                 font-size: 0.7em;
             }
 
-            .sidebar-logo {
+            .sidebar-user {
                 display: none;
             }
         }
@@ -509,6 +518,7 @@
             .sidebar-nav li a:hover {
                 background-color: transparent;
                 color: #ff453a;
+                /* CORRIGIDO para a cor tema da página */
             }
         }
     </style>
@@ -517,36 +527,26 @@
 
 <body>
     <div class="dashboard-container">
-        
         <aside class="sidebar">
-            <div class="sidebar-logo">
-                <a href="#"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHySURBVDhPpZJPSBRhFMd/d2Z3dnV13TUF8SoaCSpoECoZ6qFAT0EPRQ8Fk0IliEihkkKgBEUohB4KlfRQBKGHCpGoQ6EgHcdK6FpRz85835md2f2YfXrHx/s93/v+7/de+H+YpnEC2d0yWCo5zKj2OD4VAdnVQB+dFBCkY2n5bW4BztbU1c/Pz8/b29vPSkpqf2dnd3d3b2hoCJaQngCMTQC8tLS0sLGxsbW1tba2tjaHBwYnJvY/XVtZWVlZWlpSWloK4+L/AQAjE8BfAFpaWhofHz87Ozs/Pz83Nzc7W1swODDAwMDAgIGBsbExYdF/APBDLwDwsbGxsbGxsbW15eXl5e3t7ePj4+vr6+7u7uLiYmNjY29v7+zs7Nra2tLS0vj4+PDw8Ozs7O3t7ezs7M/Pz8zMzMvLw+fn5+Hh4evr6+Xl5d3d3bW1tQkJCZGRkcnJyWlpaZGRkeXl5QkJCcnJyakpqampKSsrm5ubW1tbKysoHBwcfHx/f39/v7+/j4+P7+/v39/cfHx+fn58fHh4eHh5+fn4eHh7u7u7e3t7a2trm5ubKysru7u7a2trm5uY/MjKysrKysrIyPz8/MzMzPz//+PHj+7s7d85c27179+7du1//vXv3rplzP/744/f7+R01cbA8b4Vj+kS+0JzfYmJioqKi4uPj7e3t7e/v7+/vf3p6evv58+fT09Pe3t7m5ubY2NjS0tLi4uLi4uKqqqrk5ORkZGS4uLiYmJj8+/fv39/f39/f7+/v7+/v7e3t7e3t7e3t7e3t7e3t7e0dHR1dXV37+/tra2v39/d3d3dXV1c3Nzc3NzcXFxcXFxcnJyZKSknJyckpKSkpKSlxcXFxcXFxcXFxcXJyanJyamJyYjIyMsbExNTU1OTk5PT09Pz8/OTk5LS0tLS0tKysrKysrKysrLS3t6OioqKiorq6ur6+voKCgoaGhubm5ra2tqampnZ2dpqamsbGxpaWlqampmZmZlZWVmZmZmZmZnZ2dna2tra2tra2trampmZmZmZmZmZmZmZmZmZmZubl/AsgW+gAAAABJRU5ErkJggg==" alt="Logo Meus Estudos"></a>
+            <div class="sidebar-user">
+                <h2>Usuário</h2>
             </div>
-             <nav class="sidebar-nav">
+            <nav class="sidebar-nav">
                 <ul>
-                    <li><a href="TelaPrincipal.html"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
-                    <li><a href="edital-pmdf.html"><i class="fa-solid fa-book"></i><span>Conteúdo</span></a></li>
-                    <li><a href="calendario.html"><i class="fa-solid fa-calendar-days"></i><span>Calendário</span></a>
+                    <li class="active">
+                        <a href="TelaPrincipal.html">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Home</span>
+                        </a>
                     </li>
-                    <li class="active"><a href="cronometro.html"><i
-                                class="fa-solid fa-stopwatch"></i><span>Cronômetro</span></a></li>
-                    <li><a href="painel_tatico.html"><i class="fa-solid fa-chart-pie"></i><span>Painel Tático</span></a>
-                    </li>
-                    <li><a href="questoes.html"><i class="fa-solid fa-list-check"></i><span>Questões</span></a></li>
-                    <li><a href="cadernos.html"><i class="fa-solid fa-swatchbook"></i><span>Cadernos</span></a></li>
-                    <li><a href="flashcards.html"><i class="fa-solid fa-layer-group"></i><span>Flashcards</span></a>
-                    </li>
-                    <li><a href="guia.html"><i class="fa-solid fa-map-location-dot"></i><span>Guia</span></a></li>
-                    <li><a href="edital.html"><i class="fa-solid fa-book-open"></i><span>Edital</span></a></li>
-                    <li><a href="musica.html"><i class="fa-solid fa-music"></i><span>Música</span></a></li>
                 </ul>
             </nav>
         </aside>
 
         <main class="main-content">
             <header class="page-header">
-                <h1>Plano de Estudos - Edital CBMDF 2025</h1>
-                <p>Acompanhe seu progresso e mantenha a disciplina para alcançar a aprovação.</p>
+                <h1>Plano de Estudos - CBMDF</h1>
+                <p>Cronograma de 15 semanas para conquistar sua aprovação.</p>
             </header>
 
             <section class="progress-panel" id="progress-panel">
@@ -557,12 +557,12 @@
                     </div>
                     <span class="progress-label" id="geral-progress-label">0%</span>
                 </div>
-                </section>
+            </section>
 
             <section class="plan-container">
-                <h2>Cronograma de Estudos - 15 Semanas</h2>
+                <h2>Cronograma de Estudos</h2>
                 <div id="cronograma-container" class="accordion-container">
-                    </div>
+                </div>
             </section>
         </main>
 
@@ -574,7 +574,7 @@
                 </div>
                 <h4><i class="fa-solid fa-bullseye"></i> Estudos de Hoje</h4>
                 <ul id="today-list">
-                    </ul>
+                </ul>
             </div>
             <div class="widget lembretes-widget">
                 <h4><i class="fa-solid fa-star"></i> Lembretes Fixos</h4>
@@ -583,9 +583,13 @@
                         <strong>Revisão de Sábado</strong>
                         <span>Revisar os tópicos mais difíceis da semana.</span>
                     </li>
-                     <li>
+                    <li>
                         <strong>Simulado Quinzenal</strong>
                         <span>Resolver um simulado completo aos domingos, a cada duas semanas.</span>
+                    </li>
+                    <li>
+                        <strong>Lei Seca</strong>
+                        <span>Dedicar 15-20 minutos diários para a leitura da legislação.</span>
                     </li>
                 </ul>
             </div>
@@ -593,256 +597,227 @@
     </div>
 
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', () => {
 
-        // --- DADOS DO EDITAL CBMDF 2025 ---
-        const editalCBMDF = {
-            'Língua Portuguesa': [
-                'Compreensão e interpretação de textos de gêneros variados.',
-                'Reconhecimento de tipos e gêneros textuais.',
-                'Domínio da ortografia oficial: emprego das letras e da acentuação gráfica.',
-                'Mecanismos de coesão textual: referenciação, substituição, repetição, conectores.',
-                'Emprego/correlação de tempos e modos verbais.',
-                'Estrutura morfossintática: coordenação e subordinação.',
-                'Emprego dos sinais de pontuação.',
-                'Concordância verbal e nominal.',
-                'Emprego do sinal indicativo de crase.',
-                'Colocação dos pronomes átonos.',
-                'Reescritura de frases e parágrafos: substituição e retextualização.',
-                'Correspondência oficial: adequação da linguagem ao tipo de documento.',
-                'Correspondência oficial: adequação do formato do texto ao gênero.'
-            ],
-            'Matemática': [
-                'Sistemas de unidades de medidas e transformação.',
-                'Sequências numéricas, progressões aritméticas e geométricas.',
-                'Geometria analítica: coordenadas, retas, circunferência, elipse, parábola, hipérbole.',
-                'Análise combinatória e probabilidade.',
-                'Geometria plana e espacial.',
-                'Noções de estatística: população, amostra, gráficos, média, mediana, moda.'
-            ],
-            'Física': [
-                'Mecânica: Cinemática, Leis de Newton, trabalho, energia, estática.',
-                'Termodinâmica: Calor, temperatura, dilatação, gases, leis da termodinâmica.',
-                'Eletromagnetismo: Carga, campo elétrico, corrente, campo magnético, leis.'
-            ],
-            'Química': [
-                'Classificação periódica dos elementos químicos.',
-                'Radioatividade: emissões, fissão, fusão, riscos e aplicações.',
-                'Ligações químicas: iônica, covalente, metálica, intermoleculares.',
-                'Matéria e mudança de estado, separação de misturas.',
-                'Gases: Teoria cinética, Leis dos gases, misturas gasosas.',
-                'Termoquímica: reações, entalpia, entropia, energia livre.',
-                'Eletroquímica: pilhas, eletrólise, corrosão.',
-                'Tecnologias associadas à química orgânica.'
-            ],
-            'Biologia': [
-                'Ecologia: Relações tróficas, biomas, ciclos, poluição.',
-                'Saúde, higiene e saneamento básico: doenças transmissíveis e imunidade.'
-            ],
-            'Noções de Informática': [
-                'Noções de sistema operacional (Linux e Windows).',
-                'Edição de textos, planilhas e apresentações (Microsoft Office e BrOffice).',
-                'Conceitos de Internet e intranet; navegadores e correio eletrônico.',
-                'Organização e gerenciamento de arquivos, pastas e programas.',
-                'Segurança da informação: vírus, pragas virtuais, backup.'
-            ],
-            'Noções de Agenda Ambiental': [
-                'Política Nacional de Mudanças no Clima (Lei 12.187/2009).',
-                'Política Nacional de Resíduos Sólidos (Lei 12.305/2010).',
-                'Lei Distrital 4.770/2012.',
-                'Desenvolvimento Sustentável e Agenda Ambiental (A3P).'
-            ],
-            'Legislação CBMDF': [
-                'Lei nº 7.479/1986 (Estatuto dos Bombeiros-Militares).',
-                'Lei nº 8.255/1991 (Organização básica do CBMDF).',
-                'Lei nº 12.086/2009 (Militares da PMDF e CBMDF).',
-                'Decreto Federal nº 7.163/2010.',
-                'Decreto GDF nº 31.817/2010.',
-                'Decreto-Lei nº 667/1969 (Reorganiza PM e CBM).',
-                'Lei nº 14.751/2023 (Lei Orgânica Nacional PM e CBM).',
-                'Lei nº 9.784/99 (Processo administrativo federal).',
-                'Lei nº 13.709/2018 (LGPD).',
-                'Lei nº 4.949/2012 (Realidade do DF e RIDE).',
-                'Lei Orgânica do Distrito Federal.',
-                'Lei Complementar nº 840/2011 (Servidores públicos civis do DF).'
-            ],
-            'Emergência Pré-Hospitalar': [
-                'Fundamentos Anatômicos e Fisiológicos.',
-                'Primeiros Socorros e Suporte Básico de Vida (SBV).',
-                'Emergências Traumáticas.',
-                'Tipos de choque, classificação e manejo.',
-                'Urgências e Emergências Clínicas.',
-                'Saúde Mental e Emergências Psiquiátricas.',
-                'Urgências Pediátricas e Obstétricas.',
-                'Atendimento em Desastres e Múltiplas Vítimas.'
-            ]
-        };
+            const editalCBMDF = { 'LÍNGUA PORTUGUESA': ['Compreensão e interpretação de textos de gêneros variados.', 'Reconhecimento de tipos e gêneros textuais.', 'Domínio da ortografia oficial: emprego das letras e da acentuação gráfica.', 'Domínio dos mecanismos de coesão textual.', 'Domínio da estrutura morfossintática do período.', 'Reescritura de frases e parágrafos do texto.', 'Correspondência oficial: adequação da linguagem e formato.'], 'MATEMÁTICA': ['Sistemas de unidades de medidas e transformação.', 'Sequências numéricas, progressões aritméticas e geométricas.', 'Geometria analítica: coordenadas, retas, circunferência, elipse, parábola, hipérbole.', 'Análise combinatória e probabilidade.', 'Geometria plana e geometria espacial.', 'Noções de estatística: população, amostra, gráficos, média, mediana, moda, desvio padrão.'], 'QUÍMICA': ['Classificação periódica dos elementos químicos.', 'Radioatividade: emissões, fissão, fusão, riscos e aplicações.', 'Ligações químicas: iônica, covalente, metálica, intermoleculares.', 'Matéria e mudança de estado, separação de misturas.', 'Gases: Teoria cinética, Leis dos gases, misturas gasosas.', 'Termoquímica: reações, entalpia, entropia, energia livre.', 'Eletroquímica: pilhas, eletrólise, corrosão.', 'Tecnologias associadas à química orgânica.'], 'FÍSICA': ['Mecânica: Cinemática, Leis de Newton, trabalho, energia, estática.', 'Termodinâmica: Calor, temperatura, dilatação, gases, leis da termodinâmica.', 'Eletromagnetismo: Carga, campo elétrico, corrente, campo magnético, leis.'], 'BIOLOGIA': ['Ecologia: Relações tróficas, biomas, ciclos, poluição.', 'Saúde, higiene e saneamento básico: doenças transmissíveis e imunidade.'], 'NOÇÕES DE INFORMÁTICA': ['Noções de sistema operacional (Linux e Windows).', 'Edição de textos, planilhas e apresentações (Microsoft Office e BrOffice).', 'Conceitos de Internet e intranet; navegadores e correio eletrônico.', 'Organização e gerenciamento de arquivos, pastas e programas.', 'Segurança da informação: vírus, pragas virtuais, backup.'], 'NOÇÕES DE AGENDA AMBIENTAL': ['Política Nacional de Mudanças no Clima (Lei 12.187/2009).', 'Política Nacional de Resíduos Sólidos (Lei 12.305/2010).', 'Lei Distrital 4.770/2012.', 'Desenvolvimento Sustentável e Agenda Ambiental (A3P).'], 'LEGISLAÇÃO': ['Lei nº 7.479/1986 (Estatuto dos Bombeiros-Militares).', 'Lei nº 8.255/1991 (Organização básica do CBMDF).', 'Lei nº 12.086/2009 (Militares da PMDF e CBMDF).', 'Decreto Federal nº 7.163/2010.', 'Decreto GDF nº 31.817/2010.', 'Decreto-Lei nº 667/1969 (Reorganiza PM e CBM).', 'Lei nº 14.751/2023 (Lei Orgânica Nacional PM e CBM).', 'Lei nº 9.784/99 (Processo administrativo federal).', 'Lei nº 13.709/2018 (LGPD) e Decreto nº 45.771/2024 (LGPD no DF).', 'Lei nº 4.949/2012 (Realidade do DF e RIDE).', 'Lei Orgânica do Distrito Federal.', 'Lei Complementar nº 840/2011 (Servidores públicos civis do DF).'], 'EMERGÊNCIA PRÉ-HOSPITALAR': ['Fundamentos Anatômicos e Fisiológicos.', 'Primeiros Socorros e Suporte Básico de Vida (SBV).', 'Emergências Traumáticas.', 'Urgências e Emergências Clínicas.', 'Saúde Mental e Emergências Psiquiátricas.', 'Urgências Pediátricas e Obstétricas.', 'Atendimento em Desastres e Múltiplas Vítimas.', 'Legislação Aplicada (Portarias MS/GM e SES-DF/CBMDF).'] };
+            const cronogramaCBMDF = [{ semana: 1, dias: [{ dia: "Segunda", topicos: [{ id: "leg1", m: "LEGISLAÇÃO", t: 0 }, { id: "lp1", m: "LÍNGUA PORTUGUESA", t: 0 }] }, { dia: "Terça", topicos: [{ id: "eph1", m: "EMERGÊNCIA PRÉ-HOSPITALAR", t: 0 }, { id: "mat1", m: "MATEMÁTICA", t: 0 }] }, { dia: "Quarta", topicos: [{ id: "leg2", m: "LEGISLAÇÃO", t: 1 }, { id: "lp2", m: "LÍNGUA PORTUGUESA", t: 1 }] }, { dia: "Quinta", topicos: [{ id: "eph2", m: "EMERGÊNCIA PRÉ-HOSPITALAR", t: 1 }, { id: "fis1", m: "FÍSICA", t: 0 }] }, { dia: "Sexta", topicos: [{ id: "info1", m: "NOÇÕES DE INFORMÁTICA", t: 0 }, { id: "qui1", m: "QUÍMICA", t: 0 }] }, { dia: "Sábado", topicos: [{ id: "rev1", m: "Revisão", t: "Revisar todos os tópicos da Semana 1" }] }] }, { semana: 2, dias: [{ dia: "Segunda", topicos: [{ id: "leg3", m: "LEGISLAÇÃO", t: 2 }, { id: "lp3", m: "LÍNGUA PORTUGUESA", t: 2 }] }, { dia: "Terça", topicos: [{ id: "eph3", m: "EMERGÊNCIA PRÉ-HOSPITALAR", t: 2 }, { id: "mat2", m: "MATEMÁTICA", t: 1 }] }, { dia: "Quarta", topicos: [{ id: "leg4", m: "LEGISLAÇÃO", t: 3 }, { id: "lp4", m: "LÍNGUA PORTUGUESA", t: 3 }] }, { dia: "Quinta", topicos: [{ id: "eph4", m: "EMERGÊNCIA PRÉ-HOSPITALAR", t: 3 }, { id: "fis2", m: "FÍSICA", t: 1 }] }, { dia: "Sexta", topicos: [{ id: "bio1", m: "BIOLOGIA", t: 0 }, { id: "qui2", m: "QUÍMICA", t: 1 }] }, { dia: "Sábado", topicos: [{ id: "rev2", m: "Revisão", t: "Revisar tópicos + 20 questões" }] }, { dia: "Domingo", topicos: [{ id: "sim1", m: "Simulado", t: "Simulado Parcial (Gerais)" }] }] }, { semana: 3, dias: [{ dia: "Segunda", topicos: [{ id: "leg5", m: "LEGISLAÇÃO", t: 4 }, { id: "lp5", m: "LÍNGUA PORTUGUESA", t: 4 }] }, { dia: "Terça", topicos: [{ id: "eph5", m: "EMERGÊNCIA PRÉ-HOSPITALAR", t: 4 }, { id: "mat3", m: "MATEMÁTICA", t: 2 }] }, { dia: "Quarta", topicos: [{ id: "leg6", m: "LEGISLAÇÃO", t: 5 }, { id: "lp6", m: "LÍNGUA PORTUGUESA", t: 5 }] }, { dia: "Quinta", topicos: [{ id: "eph6", m: "EMERGÊNCIA PRÉ-HOSPITALAR", t: 5 }, { id: "fis3", m: "FÍSICA", t: 2 }] }, { dia: "Sexta", topicos: [{ id: "info2", m: "NOÇÕES DE INFORMÁTICA", t: 1 }, { id: "qui3", m: "QUÍMICA", t: 2 }] }, { dia: "Sábado", topicos: [{ id: "rev3", m: "Revisão", t: "Revisar todos os tópicos da Semana 3" }] }] }, { semana: 4, dias: [{ dia: "Segunda", topicos: [{ id: "leg7", m: "LEGISLAÇÃO", t: 6 }, { id: "lp7", m: "LÍNGUA PORTUGUESA", t: 6 }] }, { dia: "Terça", topicos: [{ id: "eph7", m: "EMERGÊNCIA PRÉ-HOSPITALAR", t: 6 }, { id: "mat4", m: "MATEMÁTICA", t: 3 }] }, { dia: "Quarta", topicos: [{ id: "leg8", m: "LEGISLAÇÃO", t: 7 }, { id: "amb1", m: "NOÇÕES DE AGENDA AMBIENTAL", t: 0 }] }, { dia: "Quinta", topicos: [{ id: "eph8", m: "EMERGÊNCIA PRÉ-HOSPITALAR", t: 7 }, { id: "qui4", m: "QUÍMICA", t: 3 }] }, { dia: "Sexta", topicos: [{ id: "bio2", m: "BIOLOGIA", t: 1 }, { id: "info3", m: "NOÇÕES DE INFORMÁTICA", t: 2 }] }, { dia: "Sábado", topicos: [{ id: "rev4", m: "Revisão", t: "Revisar tópicos + 20 questões" }] }, { dia: "Domingo", topicos: [{ id: "sim2", m: "Simulado", t: "Simulado Parcial (Específicas)" }] }] }, { semana: 5, dias: [{ dia: "Segunda", topicos: [{ id: "leg9", m: "LEGISLAÇÃO", t: 8 }, { id: "qui5", m: "QUÍMICA", t: 4 }] }, { dia: "Terça", topicos: [{ id: "mat5", m: "MATEMÁTICA", t: 4 }, { id: "info4", m: "NOÇÕES DE INFORMÁTICA", t: 3 }] }, { dia: "Quarta", topicos: [{ id: "leg10", m: "LEGISLAÇÃO", t: 9 }, { id: "amb2", m: "NOÇÕES DE AGENDA AMBIENTAL", t: 1 }] }, { dia: "Quinta", topicos: [{ id: "qui6", m: "QUÍMICA", t: 5 }, { id: "mat6", m: "MATEMÁTICA", t: 5 }] }, { dia: "Sexta", topicos: [{ id: "leg11", m: "LEGISLAÇÃO", t: 10 }, { id: "info5", m: "NOÇÕES DE INFORMÁTICA", t: 4 }] }, { dia: "Sábado", topicos: [{ id: "rev5", m: "Revisão", t: "Revisar todos os tópicos da Semana 5" }] }] }, { semana: 6, dias: [{ dia: "Segunda", topicos: [{ id: "leg12", m: "LEGISLAÇÃO", t: 11 }, { id: "qui7", m: "QUÍMICA", t: 6 }] }, { dia: "Terça", topicos: [{ id: "amb3", m: "NOÇÕES DE AGENDA AMBIENTAL", t: 2 }, { id: "qui8", m: "QUÍMICA", t: 7 }] }, { dia: "Quarta", topicos: [{ id: "amb4", m: "NOÇÕES DE AGENDA AMBIENTAL", t: 3 }, { id: "rev_lp", m: "Revisão", t: "Revisão completa de Língua Portuguesa" }] }, { dia: "Quinta", topicos: [{ id: "rev_mat", m: "Revisão", t: "Revisão completa de Matemática" }] }, { dia: "Sexta", topicos: [{ id: "rev_fis_bio", m: "Revisão", t: "Revisão de Física e Biologia" }] }, { dia: "Sábado", topicos: [{ id: "rev6", m: "Revisão", t: "Revisar tópicos + 30 questões" }] }, { dia: "Domingo", topicos: [{ id: "sim3", m: "Simulado", t: "Simulado Completo 1" }] }] }, { semana: 7, dias: [{ dia: "Segunda", topicos: [{ id: "q_leg1", m: "Questões", t: "40 Questões de Legislação" }] }, { dia: "Terça", topicos: [{ id: "q_eph1", m: "Questões", t: "40 Questões de EPH" }] }, { dia: "Quarta", topicos: [{ id: "q_lp1", m: "Questões", t: "40 Questões de Português" }] }, { dia: "Quinta", topicos: [{ id: "q_mat1", m: "Questões", t: "40 Questões de Matemática" }] }, { dia: "Sexta", topicos: [{ id: "q_div1", m: "Questões", t: "50 Questões (Química, Física, Info)" }] }, { dia: "Sábado", topicos: [{ id: "rev7", m: "Revisão", t: "Corrigir e revisar questões da semana" }] }] }, { semana: 8, dias: [{ dia: "Segunda", topicos: [{ id: "q_leg2", m: "Questões", t: "Foco nos erros: Legislação" }] }, { dia: "Terça", topicos: [{ id: "q_eph2", m: "Questões", t: "Foco nos erros: EPH" }] }, { dia: "Quarta", topicos: [{ id: "q_lp2", m: "Questões", t: "Foco nos erros: Português" }] }, { dia: "Quinta", topicos: [{ id: "q_mat2", m: "Questões", t: "Foco nos erros: Matemática" }] }, { dia: "Sexta", topicos: [{ id: "q_div2", m: "Questões", t: "Foco nos erros: Demais matérias" }] }, { dia: "Sábado", topicos: [{ id: "rev8", m: "Revisão", t: "Revisão geral com base nos erros" }] }, { dia: "Domingo", topicos: [{ id: "sim4", m: "Simulado", t: "Simulado Completo 2" }] }] }, { semana: 9, dias: [{ dia: "Segunda", topicos: [{ id: "sim4_rev", m: "Revisão", t: "Análise detalhada do Simulado 2" }] }, { dia: "Terça", topicos: [{ id: "rev_geral_leg", m: "Revisão", t: "Revisão geral: Legislação" }] }, { dia: "Quarta", topicos: [{ id: "rev_geral_eph", m: "Revisão", t: "Revisão geral: EPH" }] }, { dia: "Quinta", topicos: [{ id: "rev_geral_lp", m: "Revisão", t: "Revisão geral: Português" }] }, { dia: "Sexta", topicos: [{ id: "rev_geral_mat", m: "Revisão", t: "Revisão geral: Matemática" }] }, { dia: "Sábado", topicos: [{ id: "rev9", m: "Revisão", t: "Revisão dos pontos mais fracos" }] }] }, { semana: 10, dias: [{ dia: "Segunda", topicos: [{ id: "q_leg3", m: "Questões", t: "Prova CBMDF/PMDF antiga" }] }, { dia: "Terça", topicos: [{ id: "q_gerais1", m: "Questões", t: "Prova de outra banca (Gerais)" }] }, { dia: "Quarta", topicos: [{ id: "q_especificas1", m: "Questões", t: "Prova de outra banca (Específicas)" }] }, { dia: "Quinta", topicos: [{ id: "rev_flashcards", m: "Revisão", t: "Revisão por flashcards/mapas mentais" }] }, { dia: "Sexta", topicos: [{ id: "rev_lei_seca", m: "Revisão", t: "Leitura de Lei Seca (Legislação)" }] }, { dia: "Sábado", topicos: [{ id: "rev10", m: "Revisão", t: "Revisão dos tópicos com >50% de erro" }] }, { dia: "Domingo", topicos: [{ id: "sim5", m: "Simulado", t: "Simulado Completo 3" }] }] }, { semana: 11, dias: [{ dia: "Segunda", topicos: [{ id: "sim5_rev", m: "Revisão", t: "Análise detalhada do Simulado 3" }] }, { dia: "Terça", topicos: [{ id: "rev11_1", m: "Revisão", t: "Revisão de fórmulas e regras (Exatas e PT)" }] }, { dia: "Quarta", topicos: [{ id: "rev11_2", m: "Revisão", t: "Revisão de protocolos e portarias (EPH)" }] }, { dia: "Quinta", topicos: [{ id: "rev11_3", m: "Revisão", t: "Revisão das leis mais importantes (Legislação)" }] }, { dia: "Sexta", topicos: [{ id: "rev11_4", m: "Revisão", t: "Revisão de matérias menores (Bio, Info, Amb.)" }] }, { dia: "Sábado", topicos: [{ id: "rev11", m: "Revisão", t: "Revisão livre dos pontos que sentir necessidade" }] }] }, { semana: 12, dias: [{ dia: "Segunda", topicos: [{ id: "rev12_1", m: "Revisão", t: "Revisão focada em Legislação" }] }, { dia: "Terça", topicos: [{ id: "rev12_2", m: "Revisão", t: "Revisão focada em EPH" }] }, { dia: "Quarta", topicos: [{ id: "rev12_3", m: "Revisão", t: "Revisão focada em Português" }] }, { dia: "Quinta", topicos: [{ id: "rev12_4", m: "Revisão", t: "Revisão focada em Exatas" }] }, { dia: "Sexta", topicos: [{ id: "rev12_5", m: "Revisão", t: "Revisão final das demais" }] }, { dia: "Sábado", topicos: [{ id: "rev12", m: "Revisão", t: "Revisão de anotações e planejamento" }] }, { dia: "Domingo", topicos: [{ id: "sim6", m: "Simulado", t: "Simulado Final 1" }] }] }, { semana: 13, dias: [{ dia: "Segunda", topicos: [{ id: "sim6_rev", m: "Revisão", t: "Análise detalhada do Simulado Final 1" }] }, { dia: "Terça", topicos: [{ id: "rev13_1", m: "Revisão", t: "Releitura de resumos e mapas mentais" }] }, { dia: "Quarta", topicos: [{ id: "rev13_2", m: "Revisão", t: "Revisão de Lei Seca (principais artigos)" }] }, { dia: "Quinta", topicos: [{ id: "rev13_3", m: "Revisão", t: "Revisão de fórmulas e conceitos-chave" }] }, { dia: "Sexta", topicos: [{ id: "rev13_4", m: "Revisão", t: "Revisão geral dos pontos com maior dificuldade" }] }, { dia: "Sábado", topicos: [{ id: "rev13", m: "Revisão", t: "Revisão livre dos pontos que sentir necessidade" }] }, { dia: "Domingo", topicos: [{ id: "sim7", m: "Simulado", t: "Simulado Final 2" }] }] }, { semana: 14, dias: [{ dia: "Segunda", topicos: [{ id: "sim7_rev", m: "Revisão", t: "Análise detalhada do Simulado Final 2" }] }, { dia: "Terça", topicos: [{ id: "rev14_1", m: "Revisão Final", t: "Revisão geral de Legislação Pertinente ao CBMDF." }] }, { dia: "Quarta", topicos: [{ id: "rev14_2", m: "Revisão Final", t: "Revisão geral de Emergência Pré-Hospitalar." }] }, { dia: "Quinta", topicos: [{ id: "rev14_3", m: "Revisão Final", t: "Revisão geral de Língua Portuguesa." }] }, { dia: "Sexta", topicos: [{ id: "rev14_4", m: "Revisão Final", t: "Revisão geral de Matemática e Exatas." }] }, { dia: "Sábado", topicos: [{ id: "rev14_5", m: "Revisão Final", t: "Revisão das anotações finais e descanso." }] }, { dia: "Domingo", topicos: [{ id: "descanso1", m: "Descanso", t: "Descanso pré-semana da prova." }] }] }, { semana: 15, dias: [{ dia: "Segunda", topicos: [{ id: "rev15_1", m: "Revisão de Véspera", t: "Leitura de pontos-chave e artigos importantes" }] }, { dia: "Terça", topicos: [{ id: "rev15_2", m: "Revisão de Véspera", t: "Leitura de fórmulas e conceitos principais" }] }, { dia: "Quarta", topicos: [{ id: "rev15_3", m: "Revisão de Véspera", t: "Leitura de mapas mentais e resumos" }] }, { dia: "Quinta", topicos: [{ id: "rev15_4", m: "Revisão de Véspera", t: "Revisão leve dos tópicos mais difíceis" }] }, { dia: "Sexta", topicos: [{ id: "rev15_5", m: "Revisão de Véspera", t: "Separar material e documentos para a prova" }] }, { dia: "Sábado", topicos: [{ id: "descanso_final", m: "Descanso Total", t: "Descanse a mente e o corpo. Confie na sua preparação." }] }, { dia: "Domingo", topicos: [{ id: "prova", m: "Dia da Prova", t: "Boa sorte! Dia de colocar todo o esforço em prática." }] }] }];
 
-        // --- CRONOGRAMA DE ESTUDOS CBMDF (15 SEMANAS) ---
-        const cronogramaCBMDF = [
-            // Mês 1: Agosto/Setembro
-            { semana: 1, dias: [ { dia: "Segunda", topicos: [{ id: "leg1", m: "Legislação CBMDF", t: 0 }, { id: "lp1", m: "Língua Portuguesa", t: 0 }] }, { dia: "Terça", topicos: [{ id: "aph1", m: "Emergência Pré-Hospitalar", t: 0 }, { id: "mat1", m: "Matemática", t: 0 }] }, { dia: "Quarta", topicos: [{ id: "leg2", m: "Legislação CBMDF", t: 1 }, { id: "lp2", m: "Língua Portuguesa", t: 1 }] }, { dia: "Quinta", topicos: [{ id: "aph2", m: "Emergência Pré-Hospitalar", t: 1 }, { id: "fis1", m: "Física", t: 0 }] }, { dia: "Sexta", topicos: [{ id: "info1", m: "Noções de Informática", t: 0 }, { id: "qui1", m: "Química", t: 0 }] }, { dia: "Sábado", topicos: [{ id: "rev1", m: "Revisão", t: "Revisar todos os tópicos da Semana 1" }] } ] },
-            { semana: 2, dias: [ { dia: "Segunda", topicos: [{ id: "leg3", m: "Legislação CBMDF", t: 2 }, { id: "lp3", m: "Língua Portuguesa", t: 2 }] }, { dia: "Terça", topicos: [{ id: "aph3", m: "Emergência Pré-Hospitalar", t: 2 }, { id: "mat2", m: "Matemática", t: 1 }] }, { dia: "Quarta", topicos: [{ id: "leg4", m: "Legislação CBMDF", t: 3 }, { id: "lp4", m: "Língua Portuguesa", t: 3 }] }, { dia: "Quinta", topicos: [{ id: "aph4", m: "Emergência Pré-Hospitalar", t: 3 }, { id: "fis2", m: "Física", t: 1 }] }, { dia: "Sexta", topicos: [{ id: "bio1", m: "Biologia", t: 0 }, { id: "qui2", m: "Química", t: 1 }] }, { dia: "Sábado", topicos: [{ id: "rev2", m: "Revisão", t: "Revisar tópicos da semana + 20 questões" }] }, { dia: "Domingo", topicos: [{ id: "sim1", m: "Simulado", t: "Simulado Parcial (Conhecimentos Gerais)" }] } ] },
-            { semana: 3, dias: [ { dia: "Segunda", topicos: [{ id: "leg5", m: "Legislação CBMDF", t: 4 }, { id: "lp5", m: "Língua Portuguesa", t: 4 }] }, { dia: "Terça", topicos: [{ id: "aph5", m: "Emergência Pré-Hospitalar", t: 4 }, { id: "mat3", m: "Matemática", t: 2 }] }, { dia: "Quarta", topicos: [{ id: "leg6", m: "Legislação CBMDF", t: 5 }, { id: "lp6", m: "Língua Portuguesa", t: 5 }] }, { dia: "Quinta", topicos: [{ id: "aph6", m: "Emergência Pré-Hospitalar", t: 5 }, { id: "fis3", m: "Física", t: 2 }] }, { dia: "Sexta", topicos: [{ id: "info2", m: "Noções de Informática", t: 1 }, { id: "qui3", m: "Química", t: 2 }] }, { dia: "Sábado", topicos: [{ id: "rev3", m: "Revisão", t: "Revisar todos os tópicos da Semana 3" }] } ] },
-            { semana: 4, dias: [ { dia: "Segunda", topicos: [{ id: "leg7", m: "Legislação CBMDF", t: 6 }, { id: "lp7", m: "Língua Portuguesa", t: 6 }] }, { dia: "Terça", topicos: [{ id: "aph7", m: "Emergência Pré-Hospitalar", t: 6 }, { id: "mat4", m: "Matemática", t: 3 }] }, { dia: "Quarta", topicos: [{ id: "leg8", m: "Legislação CBMDF", t: 7 }, { id: "lp8", m: "Língua Portuguesa", t: 7 }] }, { dia: "Quinta", topicos: [{ id: "aph8", m: "Emergência Pré-Hospitalar", t: 7 }, { id: "amb1", m: "Noções de Agenda Ambiental", t: 0 }] }, { dia: "Sexta", topicos: [{ id: "bio2", m: "Biologia", t: 1 }, { id: "qui4", m: "Química", t: 3 }] }, { dia: "Sábado", topicos: [{ id: "rev4", m: "Revisão", t: "Revisar tópicos da semana + 20 questões" }] }, { dia: "Domingo", topicos: [{ id: "sim2", m: "Simulado", t: "Simulado Parcial (Conhecimentos Específicos)" }] } ] },
-            // Mês 2: Outubro
-            { semana: 5, dias: [ { dia: "Segunda", topicos: [{ id: "leg9", m: "Legislação CBMDF", t: 8 }, { id: "lp9", m: "Língua Portuguesa", t: 8 }] }, { dia: "Terça", topicos: [{ id: "info3", m: "Noções de Informática", t: 2 }, { id: "mat5", m: "Matemática", t: 4 }] }, { dia: "Quarta", topicos: [{ id: "leg10", m: "Legislação CBMDF", t: 9 }, { id: "lp10", m: "Língua Portuguesa", t: 9 }] }, { dia: "Quinta", topicos: [{ id: "amb2", m: "Noções de Agenda Ambiental", t: 1 }, { id: "qui5", m: "Química", t: 4 }] }, { dia: "Sexta", topicos: [{ id: "mat6", m: "Matemática", t: 5 }, { id: "qui6", m: "Química", t: 5 }] }, { dia: "Sábado", topicos: [{ id: "rev5", m: "Revisão", t: "Revisar todos os tópicos da Semana 5" }] } ] },
-            { semana: 6, dias: [ { dia: "Segunda", topicos: [{ id: "leg11", m: "Legislação CBMDF", t: 10 }, { id: "lp11", m: "Língua Portuguesa", t: 10 }] }, { dia: "Terça", topicos: [{ id: "info4", m: "Noções de Informática", t: 3 }, { id: "qui7", m: "Química", t: 6 }] }, { dia: "Quarta", topicos: [{ id: "leg12", m: "Legislação CBMDF", t: 11 }, { id: "lp12", m: "Língua Portuguesa", t: 11 }] }, { dia: "Quinta", topicos: [{ id: "amb3", m: "Noções de Agenda Ambiental", t: 2 }, { id: "qui8", m: "Química", t: 7 }] }, { dia: "Sexta", topicos: [{ id: "info5", m: "Noções de Informática", t: 4 }, { id: "amb4", m: "Noções de Agenda Ambiental", t: 3 }] }, { dia: "Sábado", topicos: [{ id: "rev6", m: "Revisão", t: "Revisar tópicos da semana + 30 questões" }] }, { dia: "Domingo", topicos: [{ id: "sim3", m: "Simulado", t: "Simulado Completo (Gerais + Específicos)" }] } ] },
-            { semana: 7, dias: [ { dia: "Segunda", topicos: [{ id: "lp13", m: "Língua Portuguesa", t: 12 }, { id: "rev_geral_leg", m: "Revisão", t: "Revisão completa de Legislação CBMDF" }] }, { dia: "Terça", topicos: [{ id: "rev_geral_aph", m: "Revisão", t: "Revisão completa de Emergência Pré-Hospitalar" }] }, { dia: "Quarta", topicos: [{ id: "rev_geral_mat", m: "Revisão", t: "Revisão completa de Matemática" }] }, { dia: "Quinta", topicos: [{ id: "rev_geral_fis_qui", m: "Revisão", t: "Revisão completa de Física e Química" }] }, { dia: "Sexta", topicos: [{ id: "rev_geral_outros", m: "Revisão", t: "Revisão de Biologia, Informática e Agenda Ambiental" }] }, { dia: "Sábado", topicos: [{ id: "rev7", m: "Revisão", t: "Revisar pontos fracos identificados na semana" }] } ] },
-            { semana: 8, dias: [ { dia: "Segunda", topicos: [{ id: "q1", m: "Questões", t: "Resolver 30 questões de Legislação CBMDF" }] }, { dia: "Terça", topicos: [{ id: "q2", m: "Questões", t: "Resolver 30 questões de Emergência Pré-Hospitalar" }] }, { dia: "Quarta", topicos: [{ id: "q3", m: "Questões", t: "Resolver 30 questões de Língua Portuguesa" }] }, { dia: "Quinta", topicos: [{ id: "q4", m: "Questões", t: "Resolver 30 questões de Matemática" }] }, { dia: "Sexta", topicos: [{ id: "q5", m: "Questões", t: "Resolver 40 questões de Física, Química e Biologia" }] }, { dia: "Sábado", topicos: [{ id: "rev8", m: "Revisão", t: "Corrigir e revisar as questões da semana" }] }, { dia: "Domingo", topicos: [{ id: "sim4", m: "Simulado", t: "Simulado Completo (Gerais + Específicos)" }] } ] },
-            // Mês 3: Novembro
-            { semana: 9, dias: [ { dia: "Segunda", topicos: [{ id: "q6", m: "Questões", t: "Bloco de questões - Legislação (foco nos erros)" }] }, { dia: "Terça", topicos: [{ id: "q7", m: "Questões", t: "Bloco de questões - APH (foco nos erros)" }] }, { dia: "Quarta", topicos: [{ id: "q8", m: "Questões", t: "Bloco de questões - Português (foco nos erros)" }] }, { dia: "Quinta", topicos: [{ id: "q9", m: "Questões", t: "Bloco de questões - Exatas (foco nos erros)" }] }, { dia: "Sexta", topicos: [{ id: "q10", m: "Questões", t: "Bloco de questões - Diversas (foco nos erros)" }] }, { dia: "Sábado", topicos: [{ id: "rev9", m: "Revisão", t: "Revisão geral com base nos erros das questões" }] } ] },
-            { semana: 10, dias: [ { dia: "Segunda", topicos: [{ id: "rev10_1", m: "Revisão", t: "Releitura de resumos e mapas mentais - Específicas" }] }, { dia: "Terça", topicos: [{ id: "rev10_2", m: "Revisão", t: "Releitura de resumos e mapas mentais - Gerais" }] }, { dia: "Quarta", topicos: [{ id: "q11", m: "Questões", t: "50 questões de Legislação e APH" }] }, { dia: "Quinta", topicos: [{ id: "q12", m: "Questões", t: "50 questões de Português e Matemática" }] }, { dia: "Sexta", topicos: [{ id: "q13", m: "Questões", t: "50 questões de outras matérias" }] }, { dia: "Sábado", topicos: [{ id: "rev10", m: "Revisão", t: "Revisão dos tópicos com mais de 50% de erro" }] }, { dia: "Domingo", topicos: [{ id: "sim5", m: "Simulado", t: "Simulado Completo (Gerais + Específicos)" }] } ] },
-            { semana: 11, dias: [ { dia: "Segunda", topicos: [{ id: "rev11_1", m: "Revisão", t: "Revisão de Lei Seca - Legislação CBMDF" }] }, { dia: "Terça", topicos: [{ id: "rev11_2", m: "Revisão", t: "Revisão de Protocolos e Portarias - APH" }] }, { dia: "Quarta", topicos: [{ id: "rev11_3", m: "Revisão", t: "Revisão de Fórmulas - Exatas" }] }, { dia: "Quinta", topicos: [{ id: "rev11_4", m: "Revisão", t: "Revisão de Regras Gramaticais - Português" }] }, { dia: "Sexta", topicos: [{ id: "rev11_5", m: "Revisão", t: "Revisão final de matérias menores" }] }, { dia: "Sábado", topicos: [{ id: "rev11", m: "Revisão", t: "Revisão geral dos pontos mais importantes" }] } ] },
-            { semana: 12, dias: [ { dia: "Segunda", topicos: [{ id: "sim6_rev", m: "Revisão", t: "Revisão detalhada do último simulado" }] }, { dia: "Terça", topicos: [{ id: "q14", m: "Questões", t: "Resolver provas antigas do CBMDF/PMDF" }] }, { dia: "Quarta", topicos: [{ id: "q15", m: "Questões", t: "Resolver provas antigas de outros CBMs" }] }, { dia: "Quinta", topicos: [{ id: "rev12_1", m: "Revisão", t: "Revisão de tópicos que caem com frequência" }] }, { dia: "Sexta", topicos: [{ id: "rev12_2", m: "Revisão", t: "Revisão dos flashcards/anotações" }] }, { dia: "Sábado", topicos: [{ id: "rev12", m: "Revisão", t: "Revisão geral dos pontos com maior dificuldade" }] }, { dia: "Domingo", topicos: [{ id: "sim7", m: "Simulado", t: "Simulado Final nº 1" }] } ] },
-            { semana: 13, dias: [ { dia: "Segunda", topicos: [{ id: "sim7_rev", m: "Revisão", t: "Revisão detalhada do Simulado Final nº 1" }] }, { dia: "Terça", topicos: [{ id: "rev13_1", m: "Revisão", t: "Revisão de Legislação e APH" }] }, { dia: "Quarta", topicos: [{ id: "rev13_2", m: "Revisão", t: "Revisão de Português e Exatas" }] }, { dia: "Quinta", topicos: [{ id: "rev13_3", m: "Revisão", t: "Revisão das demais matérias" }] }, { dia: "Sexta", topicos: [{ id: "rev13_4", m: "Revisão", t: "Leitura de anotações e planejamento para o simulado" }] }, { dia: "Sábado", topicos: [{ id: "rev13", m: "Revisão", t: "Revisão livre dos pontos que sentir necessidade" }] }, { dia: "Domingo", topicos: [{ id: "sim8", m: "Simulado", t: "Simulado Final nº 2" }] } ] },
-            { semana: 14, dias: [ { dia: "Segunda", topicos: [{ id: "sim8_rev", m: "Revisão", t: "Revisão detalhada do Simulado Final nº 2" }] }, { dia: "Terça", topicos: [{ id: "rev14_1", m: "Revisão Final", t: "Revisão geral de Legislação Pertinente ao CBMDF." }] }, { dia: "Quarta", topicos: [{ id: "rev14_2", m: "Revisão Final", t: "Revisão geral de Emergência Pré-Hospitalar." }] }, { dia: "Quinta", topicos: [{ id: "rev14_3", m: "Revisão Final", t: "Revisão geral de Língua Portuguesa." }] }, { dia: "Sexta", topicos: [{ id: "rev14_4", m: "Revisão Final", t: "Revisão geral de Matemática e Física." }] }, { dia: "Sábado", topicos: [{ id: "rev14_5", m: "Revisão Final", t: "Revisão das anotações finais e descanso." }] }, { dia: "Domingo", topicos: [{ id: "descanso1", m: "Descanso", t: "Descanso pré-semana da prova." }] } ] },
-            { semana: 15, dias: [ { dia: "Segunda", topicos: [{ id: "rev15_1", m: "Revisão de Véspera", t: "Leitura de pontos-chave e artigos importantes" }] }, { dia: "Terça", topicos: [{ id: "rev15_2", m: "Revisão de Véspera", t: "Leitura de fórmulas e conceitos principais" }] }, { dia: "Quarta", topicos: [{ id: "rev15_3", m: "Revisão de Véspera", t: "Leitura de mapas mentais e resumos" }] }, { dia: "Quinta", topicos: [{ id: "rev15_4", m: "Revisão de Véspera", t: "Revisão leve dos tópicos mais difíceis" }] }, { dia: "Sexta", topicos: [{ id: "rev15_5", m: "Revisão de Véspera", t: "Separar material e documentos para a prova" }] }, { dia: "Sábado", topicos: [{ id: "descanso_final", m: "Descanso Total", t: "Descanse a mente e o corpo. Confie na sua preparação." }] }, { dia: "Domingo", topicos: [{ id: "prova", m: "Dia da Prova", t: "Boa sorte! Dia de colocar todo o esforço em prática." }] } ] },
-        ];
+            const cronogramaContainer = document.getElementById('cronograma-container');
+            const progressPanel = document.getElementById('progress-panel');
+            const todayList = document.getElementById('today-list');
+            const currentDateEl = document.getElementById('current-date');
 
-        const cronogramaContainer = document.getElementById('cronograma-container');
-        const progressPanel = document.getElementById('progress-panel');
-        const todayList = document.getElementById('today-list');
-        const currentDateEl = document.getElementById('current-date');
+            const currentUserEmail = "default_user@cbmdf.com";
+            const progressKey = `studyProgressCBMDF_${currentUserEmail}`;
 
-        let progress = JSON.parse(localStorage.getItem('studyProgressCBMDF')) || {};
-        let totalTopics = 0;
+            let progress = JSON.parse(localStorage.getItem(progressKey)) || {};
+            let totalTopics = 0;
 
-        function saveProgress() {
-            localStorage.setItem('studyProgressCBMDF', JSON.stringify(progress));
-        }
+            function saveProgress() {
+                localStorage.setItem(progressKey, JSON.stringify(progress));
+            }
 
-        function renderCronograma() {
-            cronogramaContainer.innerHTML = '';
-            totalTopics = 0;
+            // FUNÇÃO RENDER CORRIGIDA E OTIMIZADA
+            function renderCronograma(currentWeekIndex) {
+                cronogramaContainer.innerHTML = '';
+                totalTopics = 0;
 
-            cronogramaCBMDF.forEach(semanaData => {
-                if (!semanaData.dias || semanaData.dias.length === 0) return;
+                cronogramaCBMDF.forEach((semanaData, index) => {
+                    const semanaEl = document.createElement('div');
+                    semanaEl.className = 'accordion-item';
+                    semanaEl.dataset.weekIndex = index;
 
-                const semanaEl = document.createElement('div');
-                semanaEl.className = 'accordion-item';
+                    if (index === currentWeekIndex) {
+                        semanaEl.classList.add('current-week');
+                    }
 
-                let semanaTopics = 0;
-                let semanaCompleted = 0;
-
-                const contentHtml = semanaData.dias.map(diaData => {
-                    const diaTopics = diaData.topicos.map(topic => {
-                        let isCountable = typeof topic.t === 'number';
-
-                        if (isCountable) {
-                            totalTopics++;
-                            semanaTopics++;
-                            if (progress[topic.id]) {
-                                semanaCompleted++;
+                    const contentHtml = semanaData.dias.map(diaData => {
+                        const diaTopics = diaData.topicos.map(topic => {
+                            let isCountable = typeof topic.t === 'number' && editalCBMDF[topic.m] && editalCBMDF[topic.m][topic.t];
+                            if (isCountable) {
+                                totalTopics++;
                             }
-                        }
-                        
-                        const topicText = isCountable ? editalCBMDF[topic.m][topic.t] : topic.t;
-                        const isCompleted = progress[topic.id] ? 'completed' : '';
-                        const isChecked = progress[topic.id] ? 'checked' : '';
-                        
-                        return `<li class="topic-item ${isCompleted}" data-id="${topic.id}"><input type="checkbox" id="${topic.id}" ${isChecked}><label for="${topic.id}"><span>${topicText}</span><span class="subject-tag">${topic.m}</span></label></li>`;
-                    }).join('');
-                    return `<div class="day-plan"><h4>${diaData.dia}</h4><ul>${diaTopics}</ul></div>`;
-                }).join('');
-                
-                const semanaProgress = semanaTopics > 0 ? Math.round((semanaCompleted / semanaTopics) * 100) : 0;
 
-                semanaEl.innerHTML = `
+                            const topicText = isCountable ? editalCBMDF[topic.m][topic.t] : topic.t;
+                            const isCompleted = progress[topic.id] ? 'completed' : '';
+                            const isChecked = progress[topic.id] ? 'checked' : '';
+
+                            return `<li class="topic-item ${isCompleted}" data-id="${topic.id}"><input type="checkbox" id="${topic.id}" ${isChecked}><label for="${topic.id}"><span>${topicText}</span><span class="subject-tag">${topic.m}</span></label></li>`;
+                        }).join('');
+                        return `<div class="day-plan"><h4>${diaData.dia}</h4><ul>${diaTopics}</ul></div>`;
+                    }).join('');
+
+                    // A lógica de cálculo foi removida daqui para evitar repetição e bugs.
+                    // Agora, apenas a estrutura HTML é criada.
+                    semanaEl.innerHTML = `
                     <div class="accordion-header">
-                        <h3>Semana ${semanaData.semana} <span class="progress-label-semana">(${semanaProgress}%)</span></h3>
+                        <h3>Semana ${semanaData.semana} <span class="progress-label-semana"></span></h3>
                         <i class="fas fa-plus icon"></i>
                     </div>
                     <div class="accordion-content">${contentHtml}</div>`;
 
-                cronogramaContainer.appendChild(semanaEl);
-            });
-        }
-
-        function updateCharts() {
-            const countableProgress = Object.keys(progress).filter(id => !isNaN(parseInt(id.replace(/[a-zA-Z_]/g, ''), 10)));
-            const completedTopics = countableProgress.length;
-            
-            const overallPercentage = totalTopics > 0 ? Math.round((completedTopics / totalTopics) * 100) : 0;
-
-            document.getElementById('geral-progress-bar').style.width = `${overallPercentage}%`;
-            document.getElementById('geral-progress-label').textContent = `${overallPercentage}%`;
-            
-            const existingCharts = progressPanel.querySelectorAll('.chart-container:not(.overall-chart)');
-            existingCharts.forEach(chart => chart.remove());
-
-            Object.keys(editalCBMDF).forEach(materia => {
-                let totalMateria = 0, completedMateria = 0;
-                cronogramaCBMDF.forEach(s => s.dias && s.dias.forEach(d => d.topicos.forEach(t => {
-                    if (t.m === materia && typeof t.t === 'number') {
-                        totalMateria++;
-                        if (progress[t.id]) completedMateria++;
-                    }
-                })));
-
-                if (totalMateria > 0) {
-                    const materiaPercentage = Math.round((completedMateria / totalMateria) * 100);
-                    const chartEl = document.createElement('div');
-                    chartEl.className = 'chart-container';
-                    chartEl.innerHTML = `<h4>${materia}</h4><div class="progress-bar-container"><div class="progress-bar" style="width: ${materiaPercentage}%;"></div></div><span class="progress-label">${materiaPercentage}%</span>`;
-                    progressPanel.appendChild(chartEl);
-                }
-            });
-        }
-        
-        function renderTodayStudies() {
-            const today = new Date();
-            const dayOfWeek = today.toLocaleDateString('pt-BR', { weekday: 'long' }).replace(/-feira/i, '').replace(/^\w/, c => c.toUpperCase());
-            
-            currentDateEl.textContent = today.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long' });
-            todayList.innerHTML = '<li>Nenhum estudo agendado para hoje.</li>';
-            
-            const startDate = new Date('2025-08-18');
-            const oneDay = 1000 * 60 * 60 * 24;
-            const weekDiff = Math.floor((today - startDate) / (oneDay * 7));
-
-            if (weekDiff >= 0 && weekDiff < cronogramaCBMDF.length) {
-                const currentWeek = cronogramaCBMDF[weekDiff];
-                if (currentWeek && currentWeek.dias) {
-                    const todayPlan = currentWeek.dias.find(d => d.dia === dayOfWeek);
-                    if (todayPlan) {
-                        todayList.innerHTML = todayPlan.topicos.map(topic => {
-                            const topicText = typeof topic.t === 'number' ? editalCBMDF[topic.m][topic.t] : topic.t;
-                            return `<li><strong>${topic.m}:</strong> <span>${topicText}</span></li>`
-                        }).join('');
-                    }
-                }
-            }
-        }
-
-        cronogramaContainer.addEventListener('click', (e) => {
-            const header = e.target.closest('.accordion-header');
-            if (header) {
-                header.parentElement.classList.toggle('active');
-                return;
+                    cronogramaContainer.appendChild(semanaEl);
+                    // A função updateWeekProgress é chamada para CADA semana, garantindo que o % inicial esteja correto.
+                    updateWeekProgress(semanaEl);
+                });
             }
 
-            const checkbox = e.target.closest('input[type="checkbox"]');
-            if (checkbox) {
-                const id = checkbox.id;
-                const topicItem = checkbox.closest('.topic-item');
-                if (checkbox.checked) {
-                    progress[id] = true;
-                    topicItem.classList.add('completed');
+            // FUNÇÃO DE ATUALIZAÇÃO CORRIGIDA
+            function updateWeekProgress(semanaEl) {
+                const weekIndex = parseInt(semanaEl.dataset.weekIndex, 10);
+                const semanaData = cronogramaCBMDF[weekIndex];
+                if (!semanaData) return;
+
+                let semanaTopics = 0;
+                let semanaCompleted = 0;
+
+                semanaData.dias.forEach(dia => {
+                    dia.topicos.forEach(topic => {
+                        // A CONDIÇÃO 'if (typeof topic.t === 'number')' FOI REMOVIDA DAQUI
+                        // para que todos os itens (matérias, revisões, etc.) sejam contados.
+                        semanaTopics++;
+                        if (progress[topic.id]) {
+                            semanaCompleted++;
+                        }
+                    });
+                });
+
+                // Lógica de cálculo unificada e corrigida.
+                const progressLabel = semanaEl.querySelector('.progress-label-semana');
+                if (semanaTopics > 0) {
+                    const semanaProgress = Math.round((semanaCompleted / semanaTopics) * 100);
+                    progressLabel.textContent = `(${semanaProgress}%)`;
                 } else {
-                    delete progress[id];
-                    topicItem.classList.remove('completed');
+                    // Caso uma semana não tenha tópicos, não exibe nada.
+                    progressLabel.textContent = '';
                 }
-                saveProgress();
-                renderCronograma();
-                updateCharts();
+            }
+
+            // ===== INÍCIO DA FUNÇÃO CORRIGIDA =====
+            function updateCharts() {
+                // 1. Identificar todas as matérias e atividades únicas do cronograma
+                const allMateriasFromCronograma = [...new Set(
+                    cronogramaCBMDF.flatMap(semana =>
+                        semana.dias.flatMap(dia =>
+                            dia.topicos.map(topic => topic.m)
+                        )
+                    )
+                )];
+
+                // Lista de atividades que não devem gerar um card de progresso
+                const materiasToIgnore = ['Descanso', 'Descanso Total', 'Dia da Prova', 'Descanso pré-semana da prova.'];
+
+                const completedCountableTopics = Object.keys(progress).filter(id => {
+                    let isCountable = false;
+                    cronogramaCBMDF.forEach(s => s.dias.forEach(d => d.topicos.forEach(t => {
+                        if (t.id === id && typeof t.t === 'number') { isCountable = true; }
+                    })));
+                    return isCountable;
+                }).length;
+
+                const overallPercentage = totalTopics > 0 ? Math.round((completedCountableTopics / totalTopics) * 100) : 0;
+
+                document.getElementById('geral-progress-bar').style.width = `${overallPercentage}%`;
+                document.getElementById('geral-progress-label').textContent = `${overallPercentage}%`;
+
+                const existingCharts = progressPanel.querySelectorAll('.chart-container:not(.overall-chart)');
+                existingCharts.forEach(chart => chart.remove());
+
+                // Laço corrigido para usar a lista completa de matérias do cronograma
+                allMateriasFromCronograma.forEach(materia => {
+                    // Ignora os cards que não fazem sentido ter progresso
+                    if (materiasToIgnore.includes(materia)) {
+                        return;
+                    }
+
+                    let totalMateria = 0, completedMateria = 0;
+                    cronogramaCBMDF.forEach(s => s.dias && s.dias.forEach(d => d.topicos.forEach(t => {
+                        // A lógica de contagem agora se aplica a qualquer 'materia' do laço
+                        if (t.m === materia) {
+                            totalMateria++;
+                            if (progress[t.id]) completedMateria++;
+                        }
+                    })));
+
+                    if (totalMateria > 0) {
+                        const materiaPercentage = Math.round((completedMateria / totalMateria) * 100);
+                        const chartEl = document.createElement('div');
+                        chartEl.className = 'chart-container';
+                        chartEl.innerHTML = `<h4>${materia}</h4><div class="progress-bar-container"><div class="progress-bar" style="width: ${materiaPercentage}%;"></div></div><span class="progress-label">${materiaPercentage}%</span>`;
+                        progressPanel.appendChild(chartEl);
+                    }
+                });
+            }
+            // ===== FIM DA FUNÇÃO CORRIGIDA =====
+
+            function renderTodayStudies(currentWeekIndex) {
+                const today = new Date();
+                const dayOfWeekName = today.toLocaleDateString('pt-BR', { weekday: 'long' });
+                const dayOfWeek = dayOfWeekName.charAt(0).toUpperCase() + dayOfWeekName.slice(1).replace('-feira', '');
+
+                currentDateEl.textContent = today.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long' });
+
+                if (currentWeekIndex >= 0 && currentWeekIndex < cronogramaCBMDF.length) {
+                    const currentWeek = cronogramaCBMDF[currentWeekIndex];
+                    if (currentWeek && currentWeek.dias) {
+                        const todayPlan = currentWeek.dias.find(d => d.dia === dayOfWeek);
+                        if (todayPlan) {
+                            todayList.innerHTML = todayPlan.topicos.map(topic => {
+                                const topicText = (typeof topic.t === 'number' && editalCBMDF[topic.m]) ? editalCBMDF[topic.m][topic.t] : topic.t;
+                                return `<li><strong>${topic.m}:</strong> <span>${topicText}</span></li>`
+                            }).join('');
+                            return;
+                        }
+                    }
+                }
+                todayList.innerHTML = '<li>Nenhum estudo agendado para hoje. Aproveite para descansar ou revisar.</li>';
+            }
+
+            cronogramaContainer.addEventListener('click', (e) => {
+                const header = e.target.closest('.accordion-header');
+                if (header) {
+                    header.parentElement.classList.toggle('active');
+                    return;
+                }
+
+                const checkbox = e.target.closest('input[type="checkbox"]');
+                if (checkbox) {
+                    const id = checkbox.id;
+                    const topicItem = checkbox.closest('.topic-item');
+                    const semanaItem = checkbox.closest('.accordion-item');
+
+                    if (checkbox.checked) {
+                        progress[id] = true;
+                        topicItem.classList.add('completed');
+                    } else {
+                        delete progress[id];
+                        topicItem.classList.remove('completed');
+                    }
+                    saveProgress();
+
+                    updateWeekProgress(semanaItem);
+                    updateCharts();
+                }
+            });
+
+            const startDate = new Date('2025-08-18T00:00:00');
+            const today = new Date();
+            const oneDay = 1000 * 60 * 60 * 24;
+            const diffTime = today - startDate;
+            const currentWeekIndex = Math.floor(diffTime / (oneDay * 7));
+
+            renderCronograma(currentWeekIndex);
+            updateCharts();
+            renderTodayStudies(currentWeekIndex);
+
+            if (currentWeekIndex >= 0 && currentWeekIndex < cronogramaCBMDF.length) {
+                const currentWeekEl = cronogramaContainer.querySelector(`[data-week-index="${currentWeekIndex}"]`);
+                if (currentWeekEl) {
+                    currentWeekEl.classList.add('active');
+                }
             }
         });
-
-        renderCronograma();
-        updateCharts();
-        renderTodayStudies();
-    });
     </script>
 </body>
+
 </html>

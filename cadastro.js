@@ -4,15 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
     registerForm.addEventListener('submit', (event) => {
         event.preventDefault();
 
-        const fullname = document.getElementById('fullname').value.trim();
+        const fullname = document.getElementById('fullname').value;
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         const confirmPassword = document.getElementById('confirm-password').value;
 
-        if (!fullname) {
-            alert('Por favor, insira seu nome completo.');
-            return;
-        }
         if (password !== confirmPassword) {
             alert('As senhas não coincidem. Por favor, tente novamente.');
             return;
@@ -24,12 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const users = JSON.parse(localStorage.getItem('users')) || [];
         const userExists = users.find(user => user.email === email);
+
         if (userExists) {
             alert('Este email já foi cadastrado. Por favor, use outro.');
             return;
         }
 
-        // Salva o novo usuário com nome
+        // Adiciona o nome completo ao objeto do usuário
         users.push({ fullname: fullname, email: email, password: password });
         localStorage.setItem('users', JSON.stringify(users));
 

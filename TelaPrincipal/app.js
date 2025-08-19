@@ -1,34 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- LÓGICA DE PERSONALIZAÇÃO E SESSÃO ---
-    const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
     
-    // Procura por elementos com a classe 'user-name' para atualizar
-    const userNameElements = document.querySelectorAll('.user-name');
-
-    if (currentUser && currentUser.fullname) {
-        // Se encontrou um usuário logado, atualiza o nome
-        userNameElements.forEach(el => {
-            el.textContent = currentUser.fullname;
-        });
-    } else {
-        // Se não houver ninguém logado, pode redirecionar para o login
-        // ou manter um nome padrão (exceto na página de login/cadastro)
-        if (!window.location.pathname.includes('index.html') && !window.location.pathname.includes('cadastro.html')) {
-            // Opcional: redirecionar se não estiver logado
-            // window.location.href = '../index.html'; 
-        }
-    }
-
     // --- LÓGICA DA BARRA LATERAL (SIDEBAR) ---
     const sidebarItems = document.querySelectorAll('.sidebar-nav li');
+
+    // Não é necessário um evento de clique para definir a classe 'active',
+    // pois cada página já a define no seu próprio HTML.
+    // Este código garante que os links funcionem como esperado.
     sidebarItems.forEach(item => {
         item.addEventListener('click', (event) => {
             const link = event.currentTarget.querySelector('a');
+            // Se o link for real (não "#"), o navegador seguirá para a página.
+            // A classe 'active' já estará definida na página de destino.
             if (link.getAttribute('href') && link.getAttribute('href') !== '#') {
-                // Comportamento de navegação padrão
+                // Permite o comportamento padrão de navegação
             } else {
+                // Previne o comportamento padrão apenas para links vazios '#'
                 event.preventDefault(); 
             }
         });
     });
+
 });
